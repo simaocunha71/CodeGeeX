@@ -1,0 +1,2 @@
+{"task_id": "CPP/0", "generation": "\tint counter = 0;\n\tfor (size_t i=1;i<numbers.size();++i) if (fabs(numbers[0] - numbers[i]) < 0.5) ++counter;\n\tif (counter > 0 && counter < numbers.size() / 2 ) return true ; else return false;\n}\n"}
+{"task_id": "CPP/0", "generation": "\tint counter = 0;\n\tfor (size_t i=1;i<numbers.size();++i) if (fabs(numbers[0] - numbers[i]) < 0.5) ++counter;\n\tif (counter > 0 && counter < numbers.size() / 2 ) return true ; else return false;\n}\n"}
