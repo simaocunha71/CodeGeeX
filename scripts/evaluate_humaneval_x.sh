@@ -9,8 +9,6 @@ SCRIPT_PATH=$(realpath "$0")
 SCRIPT_DIR=$(dirname "$SCRIPT_PATH")
 MAIN_DIR=$(dirname "$SCRIPT_DIR")
 
-echo "$INPUT_FILE"
-
 if [ -z "$N_WORKERS" ]
 then
     N_WORKERS=64
@@ -42,6 +40,4 @@ CMD="python $MAIN_DIR/codegeex/benchmark/humaneval-x/evaluate_humaneval_x.py \
     --tmp_dir $MAIN_DIR/codegeex/benchmark/humaneval-x/ \
     --problem_file $DATA_DIR \
     --timeout $TIMEOUT"
-
-echo "$CMD"
 eval "$CMD"
