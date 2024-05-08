@@ -1,3 +1,10 @@
+### Forked repository of CodeGeeX for HumanEval-X implementation
+
+Changes from the original repository:
+* Updated compiler URLs from https://github.com/THUDM/CodeGeeX/issues/223 in the Dockerfile
+* Bug fixed on execution.py file - https://github.com/THUDM/CodeGeeX/pull/214
+* Added Rust in HumanEval-X using code from https://github.com/THUDM/CodeGeeX/pull/76/commits/f66205b5f615a4eead9c26d7ec297e14738ea18d#diff-12815b87139e59bd3676b178beb9939dbfede116a444c52aa1a9fdc5002a29fe
+
 <img src="resources/logo/codegeex_logo.png">
 
 <p align="center">
