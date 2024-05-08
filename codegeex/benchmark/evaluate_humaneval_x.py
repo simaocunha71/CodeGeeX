@@ -21,6 +21,7 @@ LANGUAGE_NAME = {
     "java"  : "Java",
     "js"    : "JavaScript",
     "python": "Python",
+    "rust": "Rust"
 }
 
 
@@ -78,7 +79,11 @@ def process_humaneval_test(sample, problems, example_test=False):
         main = "\nfn main(){ \n } \n"
         declaration = problems[task_id]["declaration"]
         test_string = main + declaration + prompt + code + test
-
+    """
+    elif language_type == "rust":
+        main = "\nfn main(){ \n } \n"
+        test_string = main + prompt + code + test
+    """
     return test_string
 
 

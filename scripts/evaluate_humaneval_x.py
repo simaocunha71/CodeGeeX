@@ -59,7 +59,6 @@ input_file: str = None,
         k: List[int] = [1, 10, 100],
         test_groundtruth: bool = False,
         example_test: bool = False,
-
 """
 
 evaluate_functional_correctness(input_file=INPUT_FILE,
@@ -67,5 +66,3 @@ evaluate_functional_correctness(input_file=INPUT_FILE,
                                 tmp_dir=TMP_DIR,
                                 problem_file=DATA_DIR,
                                 timeout=300.0)
-
-

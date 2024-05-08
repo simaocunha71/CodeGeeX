@@ -1,7 +1,7 @@
 # This script is for evaluating the functional correctness of the generated codes of HumanEval-X.
 
 INPUT_FILE=$1  # Path to the .jsonl file that contains the generated codes.
-LANGUAGE=$2  # Target programming language, currently support one of ["python", "java", "cpp", "js", "go"]
+LANGUAGE=$2  # Target programming language, currently support one of ["python", "java", "cpp", "js", "go", "rust"]
 N_WORKERS=$3  # Number of parallel workers.
 TIMEOUT=$4  # Timeout in seconds.
 
