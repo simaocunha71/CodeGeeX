@@ -1,17 +1,16 @@
-import io
-import os
-import signal
-import random
-import gzip
-import json
-import tempfile
-import platform
-import subprocess
 import contextlib
 import faulthandler
+import io
 import multiprocessing
+import os
+import platform
+import signal
+import random
+import subprocess
+import tempfile
+import gzip
+import json
 from typing import *
-
 
 def dicts_to_jsonl(data_list: list, filename: str, compress: bool = True) -> None:
     """
@@ -123,7 +122,7 @@ def check_correctness(
                     # does not perform destructive actions on their host or network.
                     # Once you have read this disclaimer and taken appropriate precautions,
                     # uncomment the following line and proceed at your own risk:
-                    exec_result = subprocess.run(["go", "test", f"-timeout={timeout}s", "main_test.go"], timeout=timeout, capture_output=True)
+                     exec_result = subprocess.run(["go", "test", f"-timeout={timeout}s", "main_test.go"], timeout=timeout, capture_output=True)
 
                 if exec_result.returncode == 0:
                     result.append("passed")
@@ -168,7 +167,7 @@ def check_correctness(
                     # does not perform destructive actions on their host or network.
                     # Once you have read this disclaimer and taken appropriate precautions,
                     # uncomment the following line and proceed at your own risk:
-                    exec_result = subprocess.run(["node", "test.js"], timeout=timeout, capture_output=True)
+                     exec_result = subprocess.run(["node", "test.js"], timeout=timeout, capture_output=True)
 
                 if exec_result.stderr.decode():
                     err = exec_result.stderr.decode()
@@ -221,7 +220,7 @@ def check_correctness(
                         # does not perform destructive actions on their host or network.
                         # Once you have read this disclaimer and taken appropriate precautions,
                         # uncomment the following line and proceed at your own risk:
-                        exec_result = subprocess.run(["./a.out"], timeout=timeout, capture_output=True)
+                         exec_result = subprocess.run(["./a.out"], timeout=timeout, capture_output=True)
 
                     if exec_result.returncode == 0:
                         result.append("passed")
@@ -242,14 +241,15 @@ def check_correctness(
 
             shutil.rmtree(tmp_dir)
         elif "rust" in language_type.lower():  
-            import os
-            WD: str = os.path.dirname(tmp_dir)
-            RUST_DIR: str = os.path.join(WD, "")
+            import os         
+            
+            WD: str = os.path.dirname(os.path.abspath(__file__))
+            RUST_DIR: str = os.path.join(WD, "rust")
             RUST_SRC: str = os.path.join(RUST_DIR, "src")
             RUST_BIN: str = os.path.join(RUST_SRC, "bin")
             RUST_TMP_DIR: str = os.path.join(RUST_DIR, "tmp")
             RUST_LOGS: str = os.path.join(RUST_TMP_DIR, "logs")
-            RUST_EXT: str = ".rs"
+            RUST_EXT: str = ".rs" 
 
             # Create mandatory tmp directories
             os.makedirs(RUST_TMP_DIR, exist_ok=True)
@@ -258,7 +258,7 @@ def check_correctness(
             os.makedirs(RUST_BIN, exist_ok=True)
 
             with tempfile.NamedTemporaryFile(dir = RUST_BIN, delete=False) as f:
-                # temporal file name
+                #temporal file name
                 file_prefix = sample["task_id"].lower().replace("/", "_")
                 file_name:str =  file_prefix +RUST_EXT
                 
@@ -344,7 +344,7 @@ def check_correctness(
                     # does not perform destructive actions on their host or network.
                     # Once you have read this disclaimer and taken appropriate precautions,
                     # uncomment the following line and proceed at your own risk:
-                    exec_result = subprocess.run([f'java', '-cp', tmp_dir, 'Main'], timeout=timeout, capture_output=True)
+                    # exec_result = subprocess.run([f'java', '-cp', tmp_dir, 'Main'], timeout=timeout, capture_output=True)
                     if exec_result.returncode == 0:
                         res = "passed"
                     elif exec_result.returncode == 1:
