@@ -45,7 +45,7 @@ const separateNestedParentheses = str => {
         }
         r = str[i + 2].match(/\w+(?=\))/) // extract next word after parentheses (which ends in )/), e.g., ("foo" (bar baz))
       }
-      if (!r) break // no more
+      if (!r) break //
 
 #[cfg(test)]
 mod tests {
